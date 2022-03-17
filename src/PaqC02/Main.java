@@ -28,10 +28,10 @@ public class Main {
 
 
             //Realizar una reserva
-            Scanner st = new Scanner(System.in);
+            Scanner sr = new Scanner(System.in);
             String respuesta;
             System.out.println("¿Desea realizar una reserva?");
-            respuesta = st.nextLine();
+            respuesta = sr.nextLine();
             respuesta = respuesta.toLowerCase();
 
 
@@ -40,22 +40,28 @@ public class Main {
             fos = new FileOutputStream("hotel.dat");
             salida = new ObjectOutputStream(fos);
 
-
+            Reserva r1 = new Reserva();
             if (respuesta.equals("si")) {
 
                 //Pedimos y guardamos los datos del cliente
                 String tipo;
                 System.out.println("Introduzca el tipo de habitación que desea");
-                tipo = st.nextLine();
+                tipo = sr.nextLine();
+
+                int cant;
+                System.out.println("Introduzca la cantidad de habitaciones que desea reservar");
+                cant = sr.nextInt();
 
 
-                int[] aux = new int[2];
-                aux = hotel.HabitacionLibre(tipo.toLowerCase());
+                 String aux = hotel.HabitacionLibre(tipo.toLowerCase(),r1,cant);
+
+                System.out.println(aux);
 
 
-                if (aux[0] != -1) {
-                    System.out.println("La habitación: " + aux[0] + "-" + aux[1] + " esta libre");
+                if (aux != null) {
+                    //System.out.println("La habitación: " + aux[0] + "-" + aux[1] + " esta libre");
 
+                    Scanner st = new Scanner(System.in);
                     String nombre;
                     System.out.println("\nIntroduzca su nombre");
                     nombre = st.nextLine();
@@ -87,10 +93,11 @@ public class Main {
                     System.out.println("Introduzca el tipo de régimen que quiere");
                     regimen = st.nextLine();
 
-                    Reserva r1 = new Reserva(nombre, apellidos, dni, tlf, fentrada, fsalida, regimen);
+                     r1 = new Reserva(nombre, apellidos, dni, tlf, fentrada, fsalida, regimen);
 
-                    hotel.realizarReserva(aux, r1);
-                    System.out.println(r1.toString());
+                    //hotel.realizarReserva(aux, r1);
+
+                    //System.out.println(r1.toString());
                     System.out.println(hotel.toString());
 
 
@@ -102,24 +109,25 @@ public class Main {
 //----------------------------------------------------------------------------------------------------------------------
 
             //Eliminar una reserva
+            Scanner se = new Scanner(System.in);
             String respuesta1;
             System.out.println("Desea eliminar una reserva?");
-            respuesta1 = st.nextLine();
+            respuesta1 = se.nextLine();
             respuesta1 = respuesta1.toLowerCase();
 
             if (respuesta1.equals("si")) {
-                int[] aux = new int[2];
-                System.out.println("De que planta es la reserva que desea eliminar?");
-                aux[0] = st.nextInt();
-                System.out.println("Cual es el numero de habitación que quiere cancelar?");
-                aux[1] = st.nextInt();
+
+                String tipoElim;
+                System.out.println("Introduzca el tipo de habitación que desea eliminar");
+                tipoElim = se.nextLine();
+
+                int cantElim;
+                System.out.println("Introduzca la cantidad de las que desea eliminar la reserva");
+                cantElim = se.nextInt();
+                int[] aux2 = new int[2];
 
 
-                if (hotel.h1[aux[0] - 1][aux[1] - 1].getReserva() != null) {
-                    hotel.eliminarReserva(aux);
-                } else {
-                    System.out.println("Esta habitación actualmente no tiene ninguna reserva");
-                }
+                    hotel.eliminarHabReservada(tipoElim.toLowerCase(),cantElim,r1);
 
             }
             try {
