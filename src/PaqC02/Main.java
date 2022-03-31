@@ -49,7 +49,7 @@ public class Main {
                 tipo = sr.nextLine();
 
                 int cant;
-                System.out.println("Introduzca la cantidad de habitaciones que desea reservar");
+                System.out.println("Introduzca la cantidad de habitaciones que desea reservar ");
                 cant = sr.nextInt();
 
 
