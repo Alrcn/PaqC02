@@ -7,12 +7,13 @@ public class Habitacion implements Serializable{
     private Reserva reserva ;
     private int numHab;
     private int numPl;
-
+    private double precio;
 
     public Habitacion(){}
-    public  Habitacion(int numHab, int numPl){
+    public  Habitacion(int numHab, int numPl, double precio){
         this.numHab = numHab;
         this.numPl = numPl;
+        this.precio = precio;
 
     }
 
@@ -24,15 +25,9 @@ public class Habitacion implements Serializable{
         return this.reserva;
    }
 
-    public void setNumHab(int numHab) {
-        this.numHab = numHab;
+    public double getPrecio() {
+        return precio;
     }
-
-    public void setNumPl(int numPl) {
-        this.numPl = numPl;
-    }
-
-
 
     public int getNumHab() {
         return numHab;

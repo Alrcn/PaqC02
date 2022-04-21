@@ -15,12 +15,12 @@ public class Hotel implements Serializable {
         for(int i = 0 ; i < nPlanta ; i++){
             for(int j = 0; j < nHabxPlanta; j++){
                 if(i<6) {
-                    h1[i][j] = new Standar(j +1, i+1);
+                    h1[i][j] = new Standar(j +1, i+1,50);
                 }else if( i<8){
-                    h1[i][j] = new Balcon(j +1, i+1);
+                    h1[i][j] = new Balcon(j +1, i+1,75);
 
                 }else {
-                    h1[i][j] = new Suite(j +1, i+1);
+                    h1[i][j] = new Suite(j +1, i+1,100);
                 }
             }
 
@@ -40,6 +40,7 @@ public class Hotel implements Serializable {
 
                         if(cantidad >0){
                             if (h1[i][j].getReserva() == null) {
+
                                 num[0] = i + 1;
                                 num[1] = j + 1;
                                 realizarReserva(num, r1);
