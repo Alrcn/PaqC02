@@ -15,6 +15,7 @@ public class Reserva implements Serializable {
 
 
     public Reserva(){}
+
     public Reserva(String dni, String nombre, String apellidos, String tlf, String fentrada, String fsalida, String regimen){
         this.dni = dni;
         this.nombre = nombre;

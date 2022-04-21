@@ -35,7 +35,7 @@ public class Hotel implements Serializable {
         for (int i = 0; i < 5; i++){
             for(int j = 0; j < nHabxPlanta; j++){
 
-                if(dni == h1[i][j].getReserva().getDni()){
+                if(dni.equals(h1[i][j].getReserva().getDni())){
                     aux=dni;
 
                 }
