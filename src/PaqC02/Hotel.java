@@ -29,19 +29,18 @@ public class Hotel implements Serializable {
     }
     //Clasebuscarcliente
 
-    public String buscarCliente(String dni){
-        String aux=null;
+    public Reserva buscarCliente(String dni){
+        Reserva aux= new Reserva();
 
         for (int i = 0; i < 5; i++){
             for(int j = 0; j < nHabxPlanta; j++){
 
                 if(dni.equals(h1[i][j].getReserva().getDni())){
-                    aux=dni;
-
+                    aux = h1[i][j].getReserva();
                 }
             }
         }
-        return dni;
+        return aux;
 
     }
 
