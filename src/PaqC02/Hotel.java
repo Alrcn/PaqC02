@@ -27,6 +27,26 @@ public class Hotel implements Serializable {
         }
 
     }
+    //Clasebuscarcliente
+
+    public String buscarCliente(String dni){
+        String aux=null;
+
+        for (int i = 0; i < 5; i++){
+            for(int j = 0; j < nHabxPlanta; j++){
+
+                if(dni == h1[i][j].getReserva().getDni()){
+                    aux=dni;
+
+                }
+            }
+        }
+        return dni;
+
+    }
+
+
+
     //poner cuantas quieres y que te reserve el numero de habitaciones que quiere reservar,
     public String HabitacionLibre(String tipo, Reserva r1 ,int cantidad)
     {
