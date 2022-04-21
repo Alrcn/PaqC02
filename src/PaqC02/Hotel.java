@@ -100,6 +100,7 @@ public class Hotel implements Serializable {
         return hab  ;
     }
 
+
     //Cambiar a privado y usar en el anterior para reservar.
     private void realizarReserva(int [] aux, Reserva reserva){
         h1[aux[0]-1][aux[1]-1].setReserva(reserva);

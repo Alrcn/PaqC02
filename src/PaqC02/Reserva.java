@@ -13,6 +13,7 @@ public class Reserva implements Serializable {
     private String regimen;
 
 
+
     public Reserva(){}
     public Reserva(String dni, String nombre, String apellidos, String tlf, String fentrada, String fsalida, String regimen){
         this.dni = dni;
